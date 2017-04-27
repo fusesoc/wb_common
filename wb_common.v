@@ -38,6 +38,17 @@ function wb_is_last;
    end
 endfunction
 
+`ifdef BROKEN_CLOG2
+function integer clog2;
+input integer in;
+begin
+	in = in - 1;
+	for (clog2 = 0; in > 0; clog2=clog2+1)
+		in = in >> 1;
+end
+endfunction
+`endif
+
 function [31:0] wb_next_adr;
    input [31:0] adr_i;
    input [2:0] 	cti_i;
@@ -47,7 +58,11 @@ function [31:0] wb_next_adr;
    reg [31:0] 	 adr;
    integer 	 shift;
    begin
+`ifdef BROKEN_CLOG2
+      shift = clog2(dw/8);
+`else
       shift = $clog2(dw/8);
+`endif
       adr = adr_i >> shift;
       if (cti_i == CTI_INC_BURST)
 	case (bte_i)
