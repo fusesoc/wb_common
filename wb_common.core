@@ -1,6 +1,6 @@
 CAPI=1
 [main]
-name = ::wb_common:1.0
+name = ::wb_common:1.0.1
 description = Common utility functions and parameters for the Wishbone bus
 
 [fileset common]
