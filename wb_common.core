@@ -1,11 +1,14 @@
-CAPI=1
-[main]
-name = ::wb_common:1.0.1
-description = Common utility functions and parameters for the Wishbone bus
+CAPI=2:
 
-[fileset common]
-files =
- wb_common_params.v
- wb_common.v
-file_type = verilogSource
-is_include_file = true
+name : ::wb_common:1.0.2
+
+filesets:
+  common:
+    files:
+      - wb_common_params.v : {is_include_file : true}
+      - wb_common.v : {is_include_file : true}
+    file_type : verilogSource
+
+targets:
+  default:
+    filesets : [common]
