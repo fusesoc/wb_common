@@ -1,6 +1,6 @@
 CAPI=2:
 
-name : ::wb_common:1.0.2
+name : ::wb_common:1.0.3
 
 filesets:
   common:
