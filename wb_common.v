@@ -33,6 +33,7 @@ function wb_is_last;
 	CTI_CONST_BURST  : wb_is_last = 1'b0;
 	CTI_INC_BURST    : wb_is_last = 1'b0;
 	CTI_END_OF_BURST : wb_is_last = 1'b1;
+	3'bxxx           : wb_is_last = 1'bx;
 	default : $display("%d : Illegal Wishbone B3 cycle type (%b)", $time, cti);
       endcase
    end
